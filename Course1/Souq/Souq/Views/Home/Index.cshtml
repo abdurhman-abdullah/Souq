@@ -1,0 +1,262 @@
+﻿ @model indexVm
+ 
+
+
+     <div class="container mt-5 mb-5">
+         
+        <form action="productsSearch" method="post">
+            <div class="row">
+                <input type="submit" class="col-sm-2 btn btn-primary" value="ابحث" />
+                 <div class="col-sm-10">
+                    <input type="text" name="xname" id="xname" class="form-control" style="text-align:right" placeholder="البحث" />
+                </div>
+            </div>
+        </form>
+     </div>
+
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Portfolio</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <li data-filter="._@item.Id">@item.Name</li>
+                    }
+                   
+                </ul>
+            </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+            @foreach (var item in Model.productImages)
+            {
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                        <div class="portfolio-wrap">
+
+                            <img src="@item.Image" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>@item.Product.Name</h4>
+                                <p>@item.Product.Price</p>
+                            </div>
+                            <div class="portfolio-links">
+                                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                <a href="/Home/ProductsDescription/@item.Product.Id" title="More Details"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+</section><!-- End Portfolio Section -->
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>أراء العملاء</h2>
+            <p>أراء و تقييم العملاء</p>
+        </div>
+
+        <div class="testimonials-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper" id="swiper-wrapper-6108189baecde98104" aria-live="off" style="transform: translate3d(-3117.33px, 0px, 0px); transition-duration: 0ms;">
+                <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="3 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                        <h3>Jena Karlis</h3>
+                        <h4>Store Owner</h4>
+                    </div>
+                </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="3" role="group" aria-label="4 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                        <h3>Matt Brandon</h3>
+                        <h4>Freelancer</h4>
+                    </div>
+                </div><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="4" role="group" aria-label="5 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                        <h3>John Larson</h3>
+                        <h4>Entrepreneur</h4>
+                    </div>
+                </div>
+
+                @foreach(var item in Model.Reviews){
+                <div class="swiper-slide swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            @item.Description
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                        <h3>@item.Name</h3>
+                        <h4>@item.Subject</h4>
+                    </div>
+                </div>
+                }
+                <!-- End testimonial item -->
+
+                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" role="group" aria-label="1 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                        <h3>Saul Goodman</h3>
+                        <h4>Ceo &amp; Founder</h4>
+                    </div>
+                </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="2 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                        <h3>Sara Wilsson</h3>
+                        <h4>Designer</h4>
+                    </div>
+                </div><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="3 / 5" style="width: 405.333px; margin-right: 40px;">
+                    <div class="testimonial-item">
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                        <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                        <h3>Jena Karlis</h3>
+                        <h4>Store Owner</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 5" aria-current="true"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+
+    </div>
+</section>
+
+<section id="pricing" class="pricing section-bg" style="background:white">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>أحدث المنتجات</h2>
+            <p>المنتجات المضافة مؤخرا</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model.LatestProducts)
+            {
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box featured">
+                        <h3 style="overflow:hidden; height:60px">@item.Name</h3>
+                        <h4><sup>$</sup>@item.Price<span> / month</span></h4>
+                        <img src="@item.Photo" style="width:200px; min-height:200px; max-height:200px" />
+                        <div class="btn-wrap">
+                            <a href="/Home/ProductsDescription/@item.Id" class="btn-buy">تفاصيل المنتج</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact section-bg">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>تواصل معنا</h2>
+          <p>ارسال المقترحات في رسالة نصية</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>العنوان</h3>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+                    <a href="mailto:alsulami.abdl@gmail.com" target="_blank">
+                        <i class="bx bx-envelope"></i>
+                    </a>
+              <h3>رسالة البريد الاللكتروني</h3>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <a href="https://api.whatsapp.com/send?phone=+966599155514" target="_blank">
+                  <i class="bx bx-phone-call"></i>
+                  </a>
+              <h3>اتصل بنا</h3>
+              <p></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 ">
+                <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60639.437156757915!2d42.62523096071294!3d18.211540256026815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15fcaa510483412f%3A0xb957782533587dc2!2z2KfZhNmF2YjYuNmB2YrZhtiMINij2KjZh9in!5e0!3m2!1sar!2ssa!4v1678125493989!5m2!1sar!2ssa" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen=""></iframe>
+          </div>
+
+          <div class="col-lg-6" dir="rtl">
+            <form asp-action="sendReview" method="post" role="form" class="myForm">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                            <input type="text" name="Name" class="form-control" id="Name" placeholder="الأسم" required="">
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="Email" id="Email" placeholder="الايميل" required="">
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="عنوان الرسالة" required="">
+              </div>
+              <div class="form-group mt-3">
+                        <textarea class="form-control" name="Description" id="Description" rows="5" placeholder="محتوى الرسالة" required=""></textarea>
+              </div>
+              <div class="text-center"><input type="submit" value="ارسال" class="btn btn-primary" /></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

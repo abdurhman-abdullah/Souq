@@ -1,0 +1,17 @@
+﻿.profileimage {
+    border-radius: 20%;
+    border: 7px solid white;
+}
+.myProductImage {
+    border-radius: 20%;
+    border: 7px solid #797d78;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 42px;
+}
+
+.myForm {
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 30px rgb(214 215 216 / 60%);
+}
